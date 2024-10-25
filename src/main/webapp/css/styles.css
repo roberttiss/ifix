@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+.card {
+  max-width: 900px; /* ou outro valor que você prefira */
+  margin: auto; /* centraliza o card */
+}
