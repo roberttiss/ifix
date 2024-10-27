@@ -29,16 +29,15 @@ public class UpdateOrder extends HttpServlet {
         request.setAttribute("observation", so.getObservation());
         request.setAttribute("description", so.getDescription());
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/updateOrder.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/views/orders/updateOrder.jsp");
         dispatcher.forward(request, response);
-        
     }
 
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.valueOf(request.getParameter("id"));
-        String description = request.getParameter("description");
-        String observation = request.getParameter("observation");
+        String description = request.getParameter("description").trim();
+        String observation = request.getParameter("observation").trim();
 
         ServiceOrder so = new ServiceOrder();
         so.setDescription(description);
@@ -57,7 +56,6 @@ public class UpdateOrder extends HttpServlet {
             url = "updateOrder.jsp";
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-        dispatcher.forward(request, response);
+        response.sendRedirect(url);
     }
 }

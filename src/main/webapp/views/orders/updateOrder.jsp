@@ -7,6 +7,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <title>Atualizar Ordem</title>
 </head>
 <body>
@@ -14,15 +15,15 @@
         <div class="container">
             <div class="col-lg-4 offset-lg-4 col-sm-12">
                 <c:choose>
-                    <c:when test="${result == 'registered'}">
+                    <c:when test="${result == 'update'}">
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
                             Ordem atualizada com sucesso.
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </c:when>
-                    <c:when test="${result == 'loginError'}">
+                    <c:when test="${result == 'error'}">
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            Ordem inválida.
+                            Erro ao atualizar a ordem.
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </c:when>
@@ -36,6 +37,7 @@
                             <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Registrar ordem</h2>
             
                             <form action="${pageContext.request.contextPath}/update-order" method="post" id="updateOrder" novalidate>
+                                <input type="hidden" name="id" value="${param.id}">
                                 <div class="mb-4 row justify-content-center">
                                     <div class="col-md-8 col-sm-12">
                                         <label for="description">Descrição*</label>
@@ -63,5 +65,9 @@
             </div>
         </div>
     </section>
+
+    <script src="${pageContext.request.contextPath}/js/orders/update-validation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

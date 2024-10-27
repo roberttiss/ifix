@@ -18,32 +18,61 @@ document.addEventListener('DOMContentLoaded', function() {
         cep.value = removerFormatacao(cep.value);
     });
 
-    document.getElementById('customer-form').addEventListener('submit', function(event) {
-        if (!this.checkValidity()) {
+    document.getElementById('continue-button').addEventListener('click', function(event) {
+        if (!validatePersonalData()) {
             event.preventDefault();
             event.stopPropagation();
+        } else {
+            showAddressFields();
         }
-        this.classList.add('was-validated');
-    });
-
-    document.getElementById('continue-button').addEventListener('click', function(event) {
-        validateForm(event);
     });
 
     document.getElementById('register-button').addEventListener('click', function(event) {
-        validateForm(event);
+        if (!validateAddress()) {
+            event.preventDefault();
+            event.stopPropagation();
+        } else {
+            document.getElementById('customer-form').submit();
+        }
     });
 });
 
-function validateTrimmedInputs() {
-    const inputs = document.querySelectorAll('#customer-form input[required]');
-    for (let input of inputs) {
-        if (input.value.trim().length === 0) {
-            input.setCustomValidity('Este campo não pode estar vazio.');
-            return false;
-        } else {
-            input.setCustomValidity('');
-        }
+function validatePersonalData(){
+    const { value: name } = document.getElementById('name');
+    const { value: cpf } = document.getElementById('cpf');
+    const { value: phone } = document.getElementById('phone');
+    const { value: email } = document.getElementById('email');
+
+    const trimmedName = name.trim();
+    const trimmedCpf = cpf.trim();
+    const trimmedPhone = phone.trim();
+    const trimmedEmail = email.trim();
+
+    if (name.length < 3 || cpf.length < 11 || phone.length < 10 || email.length < 10) {
+        alert("Nome deve ter no mínimo 3 caracteres. CPF, telefone e e-mail não podem ser vazios.");
+        return false;
+    }
+    return true;
+}
+
+function validateAddress() {
+    const { value: zipCode } = document.getElementById('zipCode');
+    const { value: street } = document.getElementById('street');
+    const { value: number } = document.getElementById('number');
+    const { value: neighborhood } = document.getElementById('neighborhood');
+    const { value: city } = document.getElementById('city');
+    const { value: state } = document.getElementById('state');
+
+    const trimmedZipCode = zipCode.trim();
+    const trimmedStreet = street.trim();
+    const trimmedNumber = number.trim();
+    const trimmedNeighborhood = neighborhood.trim();
+    const trimmedCity = city.trim();
+    const trimmedState = state.trim();
+
+    if (trimmedZipCode.length < 8 || trimmedStreet.length < 3 || trimmedNumber.length < 1 || trimmedNeighborhood.length < 3 || trimmedCity.length < 3 || trimmedState.length < 2) {
+        alert("CEP deve ter no mínimo 8 caracteres. Rua, número, bairro, cidade e estado não podem ser vazios.");
+        return false;
     }
     return true;
 }

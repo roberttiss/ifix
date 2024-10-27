@@ -36,7 +36,7 @@
                     <div class="card-body p-2 p-md-2 p-xl-4 align-items-center">
                         <h2 class="fs-6 fw-normal text-center text-secondary mb-4">Registrar ordem</h2>
         
-                        <form action="${pageContext.request.contextPath}/create-order" method="post" id="order-form" novalidate class="text-center">
+                        <form action="${pageContext.request.contextPath}/create-order" method="post" id="createOrder" novalidate class="text-center">
                             <div class="mb-4 row justify-content-center">
                                 <div class="col-md-8 col-sm-12">
                                     <label for="description">Descrição*</label>
@@ -64,7 +64,7 @@
                                     <div class="invalid-feedback">Selecione uma forma de pagamento.</div>
                                 </div>
                                 <div class="col-md-4 col-sm-12">
-                                    <label for="price">Valor</label>
+                                    <label for="price">Valor*</label>
                                     <input type="number" name="price" id="price" class="form-control" required step="0.01" min="0">
                                     <div class="invalid-feedback">Por favor, preencha o valor corretamente com duas casas decimais.</div>
                                 </div>                       
@@ -73,7 +73,6 @@
                                 <div class="col-md-6 col-sm-12">
                                     <button type="submit" class="btn btn-primary w-100">Registrar</button>
                                 </div>
-                            </div>
                             </div>
                         </form>
                     </div>

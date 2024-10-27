@@ -49,6 +49,7 @@
                 <th scope="col" class="px-6 py-3">Data de abertura</th>
                 <th scope="col" class="px-6 py-3">Observação</th>
                 <th scope="col" class="px-6 py-3">Status</th>
+                <th scope="col" class="px-6 py-3">Pagar</th>
                 <th scope="col" class="px-6 py-3">Editar</th>
                 <th scope="col" class="px-6 py-3">Excluir</th>
             </tr>
@@ -69,7 +70,7 @@
                             <td class="px-6 py-4">
                                 <form action="${pageContext.request.contextPath}/update-order" method="get">
                                     <input type="hidden" name="id" value="${order.id}">
-                                    <a href="updateOrder?id=${order.id}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</button>
                                 </form>
                             </td>
                             <td class="px-6 py-4">
