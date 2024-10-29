@@ -10,6 +10,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="${pageContext.request.contextPath}/css/errors.css" rel="stylesheet">
 		<link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+        <link href="${pageContext.request.contextPath}/css/errors.css" rel="stylesheet">
+        <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet">
 		<title>Cadastrar-se</title>
 	</head>
 <body>
@@ -19,13 +21,13 @@
 				<c:choose>
 					<c:when test="${result == 'registered'}">
 						<div class="alert alert-success alert-dismissible fade show" role="alert">
-							Cliente cadastrado com sucesso.
+							Customer registered successfully.
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>
 					</c:when>
-					<c:when test="${result == 'loginError'}">
+					<c:when test="${result == 'error'}">
 						<div class="alert alert-danger alert-dismissible fade show" role="alert">
-							Erro ao cadastrar cliente.
+							Error creating customer.
 							<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 						</div>
 					</c:when>
@@ -43,7 +45,7 @@
 								
 								<div class="mb-3 row justify-content-center">
 									<div class="col-md-6 col-sm-12">
-										<label for="name">Nome*</label>
+										<label for="name">Name*</label>
 										<input type="text" name="name" id="name" class="form-control" minlength="3" required>
 										<div class="invalid-feedback">O nome deve ter no mínimo 3 caracteres.</div>
 									</div>
@@ -67,7 +69,7 @@
 
 								<div class="mb-3 row justify-content-center">
 									<div class="col-md-6 col-sm-12">
-										<label for="phone">Telefone*</label>
+										<label for="phone">Phone*</label>
 										<input type="text" name="phone" id="phone" class="form-control" maxlength="15" required>
 										<div class="invalid-feedback">Por favor, insira um telefone válido.</div>
 									</div>
@@ -76,7 +78,7 @@
 
 								<div class="mb-3 row justify-content-center">
 									<div class="col-md-6 col-sm-12">
-										<button type="submit" class="btn btn-primary w-100" id="continue-button">Continuar</button>
+										<button type="submit" class="btn btn-primary w-100" id="continue-button">Next</button>
 									</div>
 								</div>
 
@@ -86,46 +88,46 @@
 
 								<div class="mb-2 row justify-content-center">
 									<div class="col-md-8 col-sm-12">
-										<label for="street">Endereço*</label>
+										<label for="street">Street*</label>
 										<input type="text" name="street" id="street" class="form-control" readonly required>
 									</div>
 								</div>
 								<div class="mb-2 row justify-content-center">
 									<div class="col-md-8 col-sm-12">
-										<label for="number">Número*</label>
+										<label for="number">Number*</label>
 										<input type="number" name="number" id="number" class="form-control" required>
 									</div>
 								</div>
 								
 								<div class="mb-1 row justify-content-center">
 									<div class="col-md-4 col-sm-12">
-										<label for="complement">Complemento*</label>
+										<label for="complement">Complement*</label>
 										<input type="text" name="complement" id="complement" class="form-control" maxlength="14" required>
 									</div>
 									<div class="col-md-4 col-sm-12">
-										<label for="zipCode">CEP*</label>
+										<label for="zipCode">ZIP Code*</label>
 										<input type="text" name="zipCode" id="zipCode" class="form-control" maxlength="9" required>
 									</div>
 								</div>
 								
 								<div class="mb-1 row justify-content-center">
 									<div class="col-md-4 col-sm-12">
-										<label for="city">Cidade*</label>
+										<label for="city">City*</label>
 										<input type="text" name="city" id="city" class="form-control" readonly required>
 									</div>
 									<div class="col-md-4 col-sm-12">
-										<label for="neighborhood">Bairro*</label>
+										<label for="neighborhood">Neighborhood*</label>
 										<input type="text" name="neighborhood" id="neighborhood" class="form-control" readonly required>
 									</div>
 									<div class="col-md-4 col-sm-12">
-										<label for="state">Estado*</label>
+										<label for="state">State*</label>
 										<input type="text" name="state" id="state" class="form-control" readonly required>
 									</div>
 								</div>
 
 								<div class="mb-3 row justify-content-center">
 									<div class="col-md-6 col-sm-12">
-										<button type="submit" class="btn btn-primary w-100" id="register-button">Registrar</button>
+										<button type="submit" class="btn btn-primary w-100" id="register-button">Register</button>
 									</div>
 								</div>
 

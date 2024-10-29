@@ -8,6 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link href="${pageContext.request.contextPath}/css/errors.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet">
     <title>Atualizar Ordem</title>
 </head>
 <body>
@@ -17,13 +19,13 @@
                 <c:choose>
                     <c:when test="${result == 'update'}">
                         <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            Ordem atualizada com sucesso.
+                            Order updated successfully.
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </c:when>
                     <c:when test="${result == 'error'}">
                         <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            Erro ao atualizar a ordem.
+                            Error updating order.
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     </c:when>
@@ -40,21 +42,21 @@
                                 <input type="hidden" name="id" value="${param.id}">
                                 <div class="mb-4 row justify-content-center">
                                     <div class="col-md-8 col-sm-12">
-                                        <label for="description">Descrição*</label>
+                                        <label for="description">Description*</label>
                                         <input type="text" name="description" id="description" class="form-control" minlength="10" required value="${description}">
                                         <div class="invalid-feedback">A descrição deve ter no minímo 10 caracteres.</div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row justify-content-center">
                                     <div class="col-md-8 col-sm-12">
-                                        <label for="observation">Observação*</label>
+                                        <label for="observation">Observation*</label>
                                         <input type="text" name="observation" id="observation" class="form-control" minlength="10" required value="${observation}">
                                         <div class="invalid-feedback">A observação deve ter no minímo 10 caracteres.</div>
                                     </div>
                                 </div>
                                 <div class="mb-4 row justify-content-center">
                                     <div class="col-md-6 col-sm-12">
-                                        <button type="submit" class="btn btn-primary w-100">Atualizar</button>
+                                        <button type="submit" class="btn btn-primary w-100">Update</button>
                                     </div>
                                 </div>
 

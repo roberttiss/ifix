@@ -12,6 +12,8 @@
             padding-top: 100px; /* Adjust this value based on the height of your navbar */
         }
     </style>
+    <link href="${pageContext.request.contextPath}/css/errors.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/styles.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="../navbar.jsp" />
@@ -22,7 +24,7 @@
 				<c:when test="${result == 'paid'}">
 					<div class="alert alert-success alert-dismissible fade show"
 						role="alert">
-						Pagamento realizado com sucesso.
+						Payment completed successfully.
 						<button type="button" class="btn-close" data-bs-dismiss="alert"
 							aria-label="Close"></button>
 					</div>
@@ -30,7 +32,7 @@
 				<c:when test="${result == 'error'}">
 					<div class="alert alert-danger alert-dismissible fade show"
 						role="alert">
-						Erro ao processar pagamento.
+						Error processing payment.
 						<button type="button" class="btn-close" data-bs-dismiss="alert"
 							aria-label="Close"></button>
 					</div>
@@ -45,13 +47,13 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">ID</th>
-                <th scope="col" class="px-6 py-3">Descrição</th>
-                <th scope="col" class="px-6 py-3">Data de abertura</th>
-                <th scope="col" class="px-6 py-3">Observação</th>
+                <th scope="col" class="px-6 py-3">Description</th>
+                <th scope="col" class="px-6 py-3">Issue date</th>
+                <th scope="col" class="px-6 py-3">Observation</th>
                 <th scope="col" class="px-6 py-3">Status</th>
-                <th scope="col" class="px-6 py-3">Pagar</th>
-                <th scope="col" class="px-6 py-3">Editar</th>
-                <th scope="col" class="px-6 py-3">Excluir</th>
+                <th scope="col" class="px-6 py-3">Pay</th>
+                <th scope="col" class="px-6 py-3">Edit</th>
+                <th scope="col" class="px-6 py-3">Delete</th>
             </tr>
         </thead>
         <tbody>

@@ -61,7 +61,7 @@ public class CreateOrder extends HttpServlet {
             request.setAttribute("result", "registered");
             url = "all-orders";
         } else {
-            request.setAttribute("result", "notRegistered");
+            request.setAttribute("result", "error");
             url = "createOrder.jsp";
         }
 
